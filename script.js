@@ -22,6 +22,8 @@ const container = document.getElementById('game-container');
 const bestScoreElement = document.getElementById('best-score');
 const avgScoreElement = document.getElementById('avg-score');
 const historyList = document.getElementById('history-list');
+// V1.3.0 新增: 重置按鈕 DOM 引用
+const resetBtn = document.getElementById('reset-btn');
 
 // ============ LocalStorage Functions ============
 
@@ -58,6 +60,15 @@ function saveScore(score) {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(scores));
     } catch (error) {
         console.error('Error saving score:', error);
+    }
+}
+
+// V1.3.0 新增: 清除所有紀錄
+function clearScores() {
+    if (confirm('確定要清除所有紀錄嗎？此操作無法復原。')) {
+        localStorage.removeItem(STORAGE_KEY);
+        scores = [];
+        init(); // Re-initialize game to update UI
     }
 }
 
@@ -120,6 +131,7 @@ function updateHistory() {
         historyList.appendChild(listItem);
     });
 }
+
 
 // ============ Game Functions ============
 
@@ -203,6 +215,13 @@ function handleClick() {
 // Event listener - full screen click handling
 body.addEventListener('click', handleClick);
 
+// V1.3.0 新增: 重置按鈕事件監聽器
+if (resetBtn) {
+    resetBtn.addEventListener('click', (e) => {
+        e.stopPropagation(); // 防止 body click handler 被觸發
+        clearScores();
+    });
+}
+
 // Initialize on load
 init();
-

@@ -104,6 +104,20 @@ body.tooEarly {
     }
 }
 
+/* V1.3.0 新增: History Header Flexbox 佈局 */
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    /* 標題下方與列表的間距 */
+}
+
+/* 確保 h2 在 Flex 容器內不會有額外的底邊距 */
+.history-header h2 {
+    margin-bottom: 0;
+}
+
 #statistics h2,
 #history h2 {
     color: white;
@@ -112,6 +126,33 @@ body.tooEarly {
     margin-bottom: 1rem;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
+
+/* V1.3.0 新增: Reset Button 樣式 */
+.reset-button {
+    cursor: pointer;
+    pointer-events: all;
+    /* 允許點擊事件 */
+    background-color: rgba(244, 67, 54, 0.7);
+    /* 警告紅 */
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background-color 0.2s, transform 0.1s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.reset-button:hover {
+    background-color: rgba(244, 67, 54, 0.9);
+    transform: translateY(-1px);
+}
+
+.reset-button:active {
+    transform: translateY(0);
+}
+
 
 /* ============ Statistics Styles ============ */
 
@@ -259,5 +300,11 @@ body.tooEarly {
 
     .stat-value {
         font-size: 1.25rem;
+    }
+
+    /* V1.3.0 Responsive Button Fix */
+    .reset-button {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.6rem;
     }
 }
