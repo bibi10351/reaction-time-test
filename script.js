@@ -200,8 +200,8 @@ function handleClick() {
     }
 }
 
-// Event listener
-container.addEventListener('click', handleClick);
+// Event listener - full screen click handling
+body.addEventListener('click', handleClick);
 
 // Initialize on load
 init();
