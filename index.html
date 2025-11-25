@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,10 +8,34 @@
     <title>反應速度測試</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div id="game-container">
         <h1 id="message">點擊螢幕開始</h1>
     </div>
+
+    <div id="stats-container">
+        <div id="statistics">
+            <h2>統計</h2>
+            <div class="stat-item">
+                <span class="stat-label">最佳成績</span>
+                <span id="best-score" class="stat-value">--</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">平均成績</span>
+                <span id="avg-score" class="stat-value">--</span>
+            </div>
+        </div>
+
+        <div id="history">
+            <h2>最近紀錄</h2>
+            <ul id="history-list">
+                <li class="no-data">尚無紀錄</li>
+            </ul>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
+
 </html>
